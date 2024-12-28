@@ -12,20 +12,32 @@ cp ./backend/.env.example ./backend/.env
 docker-compose run --rm backend composer app-setup
 ```
 
-## Run
+## Run Service
 
 ```
 docker-compose up
 ```
 
-## Close 
+# Down Service 
 
-`docker-compose down`
+```
+docker-compose down
+```
 
-# Dashboard Backend
+## Tests
 
-dashboard
-`http://localhost:8000/`
+from outside
+```
+docker-compose run backend bash -c "composer app-test"
+```
 
-docs
-`http://localhost:8000/api/docs`
+from inside docker
+```
+composer app-test
+```
+
+## Docs
+
+```
+http://localhost:8000/api/docs
+```
