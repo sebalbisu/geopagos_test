@@ -1,0 +1,40 @@
+services:
+
+  backend:
+    image: ${PROJECT_NAME}-backend:1.0.0
+    build:
+      context: ./backend
+    working_dir: ${BACKEND_PATH_INSIDE}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:${BACKEND_PATH_INSIDE}
+    env_file:
+      - .env
+    command: "composer app-run"
+    depends_on:
+      - db
+
+  web_server:
+    image: nginx:1.27.0
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/templates:/etc/nginx/templates
+      - ./backend:${BACKEND_PATH_INSIDE}
+      - ./data/backend/storage:${BACKEND_PATH_INSIDE}/storage
+    env_file:
+      - .env
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    ports:
+      - ${DB_PORT_OUTSIDE}:${DB_PORT_INSIDE}
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data

@@ -1,0 +1,30 @@
+{
+    "name": "backend_vscode",
+    "service": "backend",
+    "dockerComposeFile": [
+        "../../docker-compose.yml"
+    ],
+    "workspaceFolder": "/var/www/backend",
+    "runServices": [
+        "db",
+        "nginx"
+    ],
+    "overrideCommand": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "xdebug.php-debug",
+                "bmewburn.vscode-intelephense-client",
+                "open-southeners.laravel-pint",
+                // "junstyle.php-cs-fixer",
+                "neilbrayfield.php-docblocker",
+                "calebporzio.better-phpunit",
+                // "amiralizadeh9480.laravel-extra-intellisense",
+                "codingyu.laravel-goto-view",
+                // "stef-k.laravel-goto-controller",
+                "austenc.laravel-blade-spacer",
+                "dominicvonk.php-tinker"
+            ]
+        }
+    }
+}

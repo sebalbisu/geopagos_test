@@ -1,0 +1,10 @@
+/data/postgres/*
+/data/redis/*
+/data/backend/storage/api-docs/*
+/data/backend/storage/app/photo/*
+/data/backend/storage/app/public/*
+/data/backend/storage/framework/cache/*
+/data/backend/storage/framework/sessions/*
+/data/backend/storage/framework/views/*
+/data/backend/storage/framework/testsing/*
+/data/backend/storage/logs/*
