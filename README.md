@@ -12,13 +12,13 @@ cp ./backend/.env.example ./backend/.env
 docker-compose run --rm backend composer app-setup
 ```
 
-## Run Service
+## Service Up
 
 ```
 docker-compose up
 ```
 
-# Down Service 
+## Service Down
 
 ```
 docker-compose down
